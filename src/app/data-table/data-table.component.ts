@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Alumno, Profesor } from '../models/user.model';
-import { UserService } from '../user.service';
+import { UserService } from '../login/user.service';
 
 @Component({
   selector: 'app-data-table',

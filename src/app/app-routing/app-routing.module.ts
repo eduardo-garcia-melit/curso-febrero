@@ -5,7 +5,9 @@ import { HomeComponent } from '../home/home.component';
 import { ThermometerComponent } from '../thermometer/thermometer.component';
 import { DataTableComponent } from '../data-table/data-table.component';
 import { PostComponent } from '../post/post.component';
-import { PostCreateComponent } from '../post-create/post-create.component';
+import { PostCreateComponent } from '../post/post-create.component';
+import { LoginComponent } from '../login/login.component';
+import { AuthGuard } from '../auth.guard';
 
 const routes: Routes = [
   {
@@ -22,15 +24,16 @@ const routes: Routes = [
   },
   {
     path: 'data-table',
-    component: DataTableComponent
+    component: DataTableComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'posts',
-    component: PostComponent
+    loadChildren: () => import('../post/post.module').then(mod => mod.PostModule)
   },
   {
-    path: 'create/post',
-    component: PostCreateComponent
+    path: 'login',
+    component: LoginComponent
   },
   {
     path: '',

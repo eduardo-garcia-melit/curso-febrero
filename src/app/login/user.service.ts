@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Alumno, Profesor } from './models/user.model';
+import { Alumno, Profesor } from '../models/user.model';
 import { Observable, of } from 'rxjs';
 import { HttpClient, HttpErrorResponse, HttpResponse } from '@angular/common/http';
 import { environment } from 'src/environments/environment';

@@ -9,5 +9,8 @@
   <a routerLink="/data-table" routerLinkActive="active">Tabla Users</a>
   <br>
   <a routerLink="/posts" routerLinkActive="active">Posts</a>
+  <br>
+  <button class="btn btn-info" type="button" [hidden]="!isLoggedIn" (click)="logout()">Logout</button>
+  <br>
 </nav>
 <router-outlet></router-outlet>

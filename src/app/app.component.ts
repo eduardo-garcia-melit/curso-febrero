@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { AuthService } from './login/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -7,16 +10,15 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Curso Febrero';
-  variable = {
-    nombre: ''
-  };
+  subscription: Subscription;
+  isLoggedIn = this.authService.isLoggedIn;
 
-  changeName() {
-    this.variable.nombre = "Pepe";
+  constructor(private authService: AuthService, private router: Router){
+    this.subscription = this.authService.updateLogin().subscribe(isLoggedIn => this.isLoggedIn = isLoggedIn);
   }
 
-  sayHello(element: any) {
-    this.variable.nombre = element.value;
-    alert(`Hola ${this.variable.nombre}`);
+  logout(){
+    this.authService.logout();
+    this.router.navigate(['/home']);
   }
 }

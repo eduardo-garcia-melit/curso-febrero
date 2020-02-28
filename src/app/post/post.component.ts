@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { PostService } from '../post.service';
+import { PostService } from './post.service';
 import { Post } from '../models/post.model';
 import { HttpResponse, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
@@ -44,7 +44,7 @@ export class PostComponent implements OnInit {
   }
 
   createNew() {
-    this.router.navigate(['/create/post']);
+    this.router.navigate(['/posts/create']);
   }
 
   buscarPost() {

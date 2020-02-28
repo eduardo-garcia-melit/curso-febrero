@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { HttpResponse, HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { Post } from './models/post.model';
+import { Post } from '../models/post.model';
 
 @Injectable({
   providedIn: 'root'
@@ -27,6 +27,11 @@ export class PostService {
 
   createPost(post: Post): Observable<HttpResponse<Post>> {
     return this.http.post<Post>(`${this.resourceUrl}`, post, { observe: 'response' }).pipe(catchError(this.handleError));
+  }
+
+  updatePost(post: Post): Observable<HttpResponse<Post>> {
+    if (!post.id) return throwError('Post sin id');
+    return this.http.put<Post>(`${this.resourceUrl}/${post.id}`, post, { observe: 'response' }).pipe(catchError(this.handleError));
   }
   
   private handleError(error: HttpErrorResponse) {

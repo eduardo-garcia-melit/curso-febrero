@@ -34,7 +34,7 @@
             </th>
         </thead>
         <tbody>
-            <tr *ngFor="let post of posts; let index = index">
+            <tr *ngFor="let post of posts; let index = index" [routerLink]="['/posts/update', post.id]">
                 <td>
                     <span>{{post.id}}</span>
                 </td>
