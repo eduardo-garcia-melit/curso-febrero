@@ -11,13 +11,13 @@ export class HomeComponent {
   users: Alumno[] = [];
   title = 'curso-febrero';
   variable = {
-    nombre: ''
+    nom: ''
   };
 
   constructor(private userService: UserService) {}
 
   sayHello(element: any) {
-    this.variable.nombre = element.value;
-    alert(`Hola ${this.variable.nombre}`);
+    this.variable.nom = element.value;
+    alert(`Hola ${this.variable.nom}`);
   }
 }
