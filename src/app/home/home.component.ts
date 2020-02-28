@@ -7,7 +7,7 @@ import { UserService } from '../user.service';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit {
   users: Alumno[] = [];
   title = 'curso-febrero';
   variable = {
@@ -15,6 +15,12 @@ export class HomeComponent {
   };
 
   constructor(private userService: UserService) {}
+
+  ngOnInit() {
+    /*this.userService.getStudents().subscribe(students => {
+      this.users = students;
+    });*/
+  }
 
   sayHello(element: any) {
     this.variable.nombre = element.value;
