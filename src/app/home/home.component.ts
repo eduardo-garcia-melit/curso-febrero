@@ -22,10 +22,6 @@ export class HomeComponent implements OnInit {
     });*/
   }
 
-  changeName() {
-    this.variable.nombre = "Pepe";
-  }
-
   sayHello(element: any) {
     this.variable.nombre = element.value;
     alert(`Hola ${this.variable.nombre}`);
